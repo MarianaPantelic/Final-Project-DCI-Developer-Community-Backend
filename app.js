@@ -42,7 +42,6 @@ app.use("/users", usersRouter);
 app.use("/profile", profileRouter);
 app.use("/blogs", blogsRouter);
 app.use("/questions", questionsRouter);
-app.use("/answers", answersRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);
