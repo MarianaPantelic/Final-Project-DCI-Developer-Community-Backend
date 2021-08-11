@@ -1,5 +1,4 @@
 const Question = require("../models/Question");
-const Question = require("../models/Answers");
 
 /* Start of Questions area*/
 
