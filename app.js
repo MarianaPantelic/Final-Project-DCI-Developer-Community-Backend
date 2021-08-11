@@ -6,9 +6,9 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+const profileRouter = require("./routes/profile");
 var blogsRouter = require("./routes/blogs");
 var questionsRouter = require("./routes/questions");
-var answersRouter = require("./routes/answers");
 
 const { setCors } = require("./middleware/security");
 
@@ -39,6 +39,7 @@ app.use(setCors);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/profile", profileRouter);
 app.use("/blogs", blogsRouter);
 app.use("/questions", questionsRouter);
 app.use("/answers", answersRouter);
