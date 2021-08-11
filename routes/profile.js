@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getUserPosts,
+  getUserBlogs,
   getUserQuestions,
 } = require("../controller/profileController");
 
-router.route("/").get(getUserPosts).get(getUserQuestions);
+router.route("/").get(getUserBlogs).get(getUserQuestions);
 
 module.exports = router;

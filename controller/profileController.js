@@ -1,14 +1,14 @@
-const Post = require("../models/Post");
+const Blog = require("../models/Blog");
 const Question = require("../models/Question");
 
-exports.getUserPosts = async (req, res, next) => {
+exports.getUserBlogs = async (req, res, next) => {
   const userName = req.query.user;
 
   console.log(userName);
   try {
-    const userPosts = await Post.find({ user: userName });
-    res.status(200).send(userPosts);
-    console.log(userPosts);
+    const userBlogs = await Blog.find({ user: userName });
+    res.status(200).send(userBlogs);
+    console.log(userBlogs);
   } catch (error) {
     next(error);
   }
