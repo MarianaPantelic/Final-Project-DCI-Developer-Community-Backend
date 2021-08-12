@@ -1,3 +1,4 @@
+
 //import mongoose so that we can use the library
 const mongoose = require("mongoose");
 //Destructuring schema from mongoose
@@ -27,3 +28,4 @@ const BlogsSchema = new Schema({
 
 //CREATE AND EXPORT THE MODEL
 module.exports = mongoose.model("Blog", BlogsSchema);
+
