@@ -10,11 +10,11 @@ exports.getAgenda = async (req, res, next) => {
 };
 
 exports.getDailyAgenda = async (req, res, next) => {
-  let date = req.params.date;
-  console.log(date);
+  let myDate = req.params.date;
+  console.log(myDate);
   console.log(req.params);
   try {
-    const daily = await Agenda.find({ date: date });
+    const daily = await Agenda.find({ date: myDate });
     console.log("daily", daily);
     res.status(200).send(daily);
   } catch (e) {
