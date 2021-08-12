@@ -13,11 +13,16 @@ const BlogsSchema = new Schema({
     type: String,
     required: true,
   },
-  userId: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "user",
+    ref: "User",
   },
-
+  // clicked: {
+  //   type: Boolean,
+  // },
+  // likes: {
+  //   type: Number,
+  // }, 
 });
 
 //CREATE AND EXPORT THE MODEL

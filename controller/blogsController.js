@@ -9,7 +9,8 @@ const Blog = require("../models/Blog");
 exports.getBlogs = async (req, res, next) => {
   //get all records
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().populate("user","firstName");
+    console.log("blogs" + blogs);
     res.status(200).send(blogs);
   } catch (error) {
     console.log(error);
@@ -24,7 +25,9 @@ exports.addBlog = async (req, res, next) => {
     var data = {
       title: req.body.title,
       content: req.body.content,
-      userId: req.user._id,
+      likes: 0,
+      user: req.user._id,
+      // userName: req.body.userName,
     };
     console.log(data);
     console.log(req.user);
@@ -36,7 +39,6 @@ exports.addBlog = async (req, res, next) => {
     next(error);
   }
 };
-
 
 // exports.updateBlogs = async (req, res, next) => {
 //   const { id } = req.params;
@@ -56,38 +58,46 @@ exports.addBlog = async (req, res, next) => {
 //   }
 // };
 
-exports.updateBlogs = async (req, res, next) => {
-  const { id } = req.params;
-
-  try {
-    const findBlogById = await Blog.findById(id);
-    console.log(findBlogById);
-    console.log(req.user);
-    if (req.user._id.toString() == findBlogById.userId.toString()) {
-
-      const blog = await Blog.findByIdAndUpdate(id, req.body, { new: true });
-      res.status(200).send(blog);
-    } else {
-      res.json("notauth");
-    }
-  } catch (error) {
-    next(error);
-  }
-};
-
-
 // exports.updateBlogs = async (req, res, next) => {
+//   const { id } = req.params;
+
 //   try {
-//     const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
-//       new: true
-//     });
-//     res.status(200).send(blog);
-//   } catch (e) {
-//     next(e);
+//     const findBlogById = await Blog.findById(id);
+//     console.log(findBlogById);
+//     console.log(req.user);
+//     if (req.user._id.toString() == findBlogById.userId.toString()) {
+
+//       const blog = await Blog.findByIdAndUpdate(id, req.body, { new: true });
+//       res.status(200).send(blog);
+//     } else {
+//       res.json("notauth");
+//     }
+//   } catch (error) {
+//     next(error);
 //   }
 // };
 
+exports.updateBlogs = async (req, res, next) => {
+   try {
+     const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
+       new: true
+     });
+     res.status(200).send(blog);
+   } catch (e) {
+     next(e);
+   }
+ };
 
+//  exports.increaseLikes = async (req, res, next) => {
+//    const { id } = req.params;
+//    const dt = req.body;
+//    try {
+//      const blog = await Blog.findByIdAndUpdate(id, dt, { new: true });
+//      res.status(200).send(blog);
+//    } catch (error) {
+//      next(error);
+//    }
+//  };
 
 // exports.deleteBlog = async (req, res, next) => {
 //   const { id } = req.params;
