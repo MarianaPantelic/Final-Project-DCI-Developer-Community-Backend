@@ -9,6 +9,7 @@ var usersRouter = require("./routes/users");
 const profileRouter = require("./routes/profile");
 var blogsRouter = require("./routes/blogs");
 var questionsRouter = require("./routes/questions");
+var agendaRouter = require("./routes/agenda");
 
 const { setCors } = require("./middleware/security");
 
@@ -42,6 +43,7 @@ app.use("/users", usersRouter);
 app.use("/profile", profileRouter);
 app.use("/blogs", blogsRouter);
 app.use("/questions", questionsRouter);
+app.use("/agenda", agendaRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);

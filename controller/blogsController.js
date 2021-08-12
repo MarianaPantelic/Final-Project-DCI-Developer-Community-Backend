@@ -12,12 +12,11 @@ exports.getBlogs = async (req, res, next) => {
     const blogs = await Blog.find().populate("userId", "firstName");
     res.status(200).send(blogs);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     //forward the error to the error handler
     next(error);
   }
 };
-
 
 exports.addBlog = async (req, res, next) => {
   try {
@@ -34,7 +33,6 @@ exports.addBlog = async (req, res, next) => {
     next(error);
   }
 };
-
 
 // exports.updateBlogs = async (req, res, next) => {
 //   const { id } = req.params;
@@ -57,15 +55,13 @@ exports.addBlog = async (req, res, next) => {
 exports.updateBlogs = async (req, res, next) => {
   try {
     const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      new: true,
     });
     res.status(200).send(blog);
   } catch (e) {
     next(e);
   }
 };
-
-
 
 // exports.deleteBlog = async (req, res, next) => {
 //   const { id } = req.params;
@@ -86,12 +82,12 @@ exports.updateBlogs = async (req, res, next) => {
 //   }
 // };
 
- exports.deleteBlog = async (req, res, next) => {
-   try {
-     const blog = await Blog.findByIdAndDelete(req.params.id);
-     if (!blog) throw new createError.NotFound();
-     res.status(200).send(blog);
-   } catch (e) {
-     next(e);
-   }
- };
+exports.deleteBlog = async (req, res, next) => {
+  try {
+    const blog = await Blog.findByIdAndDelete(req.params.id);
+    if (!blog) throw new createError.NotFound();
+    res.status(200).send(blog);
+  } catch (e) {
+    next(e);
+  }
+};
