@@ -31,7 +31,7 @@ exports.addBlog = async (req, res, next) => {
     await blog.save();
     res.status(200).send(blog);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     next(error);
   }
 };
@@ -58,22 +58,10 @@ exports.updateBlogs = async (req, res, next) => {
   const { id } = req.params;
 
   try {
-<<<<<<< HEAD
-    const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
-    res.status(200).send(blog);
-  } catch (e) {
-    next(e);
-  }
-};
-
-=======
     const findBlogById = await Blog.findById(id);
     console.log(findBlogById);
     console.log(req.user);
     if (req.user._id.toString() == findBlogById.userId.toString()) {
-
       const blog = await Blog.findByIdAndUpdate(id, req.body, { new: true });
       res.status(200).send(blog);
     } else {
@@ -83,7 +71,6 @@ exports.updateBlogs = async (req, res, next) => {
     next(error);
   }
 };
-
 
 // exports.updateBlogs = async (req, res, next) => {
 //   try {
@@ -96,9 +83,6 @@ exports.updateBlogs = async (req, res, next) => {
 //   }
 // };
 
-
-
->>>>>>> afe75343368de0ac83dbaf660c13ba8ffeb53d9e
 // exports.deleteBlog = async (req, res, next) => {
 //   const { id } = req.params;
 //   try {
