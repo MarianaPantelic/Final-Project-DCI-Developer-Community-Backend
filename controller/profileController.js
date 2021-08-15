@@ -1,5 +1,5 @@
 const Blog = require("../models/Blog");
-const Question = require("../models/Question");
+const Question = require("../models/Forum");
 
 exports.getUserBlogs = async (req, res, next) => {
   const userName = req.query.user;
