@@ -8,7 +8,15 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const profileRouter = require("./routes/profile");
 var blogsRouter = require("./routes/blogs");
+
 var forumRouter = require("./routes/forum");
+
+
+var newsRouter = require("./routes/news");
+
+var questionsRouter = require("./routes/questions");
+
+
 
 const { setCors } = require("./middleware/security");
 
@@ -41,7 +49,15 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/profile", profileRouter);
 app.use("/blogs", blogsRouter);
+
 app.use("/forum", forumRouter);
+
+
+app.use("/news", newsRouter);
+
+app.use("/questions", questionsRouter);
+
+
 
 
 
