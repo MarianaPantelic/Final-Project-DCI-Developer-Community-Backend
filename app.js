@@ -11,12 +11,7 @@ var blogsRouter = require("./routes/blogs");
 
 var forumRouter = require("./routes/forum");
 
-
 var newsRouter = require("./routes/news");
-
-var questionsRouter = require("./routes/questions");
-
-
 
 const { setCors } = require("./middleware/security");
 
@@ -52,14 +47,7 @@ app.use("/blogs", blogsRouter);
 
 app.use("/forum", forumRouter);
 
-
 app.use("/news", newsRouter);
-
-app.use("/questions", questionsRouter);
-
-
-
-
 
 app.use((err, req, res, next) => {
   console.log(err);
