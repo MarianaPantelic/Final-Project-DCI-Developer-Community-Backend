@@ -18,12 +18,15 @@ const BlogsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  // clicked: {
-  //   type: Boolean,
-  // },
-  // likes: {
-  //   type: Number,
-  // }, 
+   clicked: {
+     type: Boolean,
+   },
+   likes: {
+     type: Number,
+   }, 
+   whoClicked: {
+     type: []
+   }
 });
 
 //CREATE AND EXPORT THE MODEL
