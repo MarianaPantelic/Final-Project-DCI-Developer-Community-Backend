@@ -9,9 +9,13 @@ var usersRouter = require("./routes/users");
 const profileRouter = require("./routes/profile");
 var blogsRouter = require("./routes/blogs");
 
+var forumRouter = require("./routes/forum");
+
+
 var newsRouter = require("./routes/news");
 
 var questionsRouter = require("./routes/questions");
+
 
 
 const { setCors } = require("./middleware/security");
@@ -20,7 +24,7 @@ var app = express();
 
 //CONNECTING WITH MONGODB
 mongoose.connect(
-  `mongodb+srv://dbMariana:test1234@cluster0.u2n6q.mongodb.net/FinalProjectDatabase?retryWrites=true&w=majority`,
+  `mongodb+srv://Florin:test1234@cluster0.5jwqg.mongodb.net/Forum?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -46,9 +50,13 @@ app.use("/users", usersRouter);
 app.use("/profile", profileRouter);
 app.use("/blogs", blogsRouter);
 
+app.use("/forum", forumRouter);
+
+
 app.use("/news", newsRouter);
 
 app.use("/questions", questionsRouter);
+
 
 
 
