@@ -49,3 +49,15 @@ exports.loginUser = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.addImage = async (req, res, next) => {
+  console.log("adding an image");
+  const { id } = req.params;
+  const dt = req.body;
+  try {
+    const user = await User.findByIdAndUpdate(id, dt, { new: true });
+    res.status(200).send(user);
+  } catch (error) {
+    next(error);
+  }
+};
