@@ -10,7 +10,6 @@ const {
   getBlogs,
   addBlog,
   deleteBlog,
-  updateBlogs,
   increaseLikes,
 } = require("../controller/blogsController");
 
@@ -19,7 +18,7 @@ router
   .get(getBlogs)
   .post(validateInputs(blogValidationRules),auth, addBlog);
 router
-.route("/:id").delete(deleteBlog).put(updateBlogs).put(increaseLikes);
+.route("/:id").delete(deleteBlog).put(increaseLikes);
 
 //export router to app.js
 module.exports = router;

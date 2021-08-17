@@ -18,14 +18,11 @@ const BlogsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-   clicked: {
-     type: Boolean,
-   },
    likes: {
      type: Number,
    }, 
    whoClicked: {
-     type: []
+     type: Array
    }
 });
 
