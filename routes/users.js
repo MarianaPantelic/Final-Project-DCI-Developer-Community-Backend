@@ -6,12 +6,13 @@ const {
   getUser,
   addUser,
   loginUser,
+  getImages,
 } = require("../controller/userController");
 
 router.route("/").get(getUsers).post(addUser);
 
 router.route("/login").post(loginUser);
 
-router.route("/:id").get(getUser);
+router.route("/:id").get(getUser).put(getImages);
 
 module.exports = router;
