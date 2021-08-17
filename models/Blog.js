@@ -14,11 +14,16 @@ const BlogsSchema = new Schema({
     type: String,
     required: true,
   },
-  userId: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "user",
+    ref: "User",
   },
-
+   likes: {
+     type: Number,
+   }, 
+   whoClicked: {
+     type: Array
+   }
 });
 
 //CREATE AND EXPORT THE MODEL
