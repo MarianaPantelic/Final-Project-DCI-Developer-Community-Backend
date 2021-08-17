@@ -6,6 +6,7 @@ const {
   getUserQuestions,
 } = require("../controller/profileController");
 
-router.route("/:id").get(getUserBlogs).get(getUserQuestions);
+router.route("/blog/:id").get(getUserBlogs);
+router.route("/question/:id").get(getUserQuestions);
 
 module.exports = router;
