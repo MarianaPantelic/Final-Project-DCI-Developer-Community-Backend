@@ -19,7 +19,7 @@ var app = express();
 
 //CONNECTING WITH MONGODB
 mongoose.connect(
-  `mongodb+srv://Florin:test1234@cluster0.5jwqg.mongodb.net/Forum?retryWrites=true&w=majority`,
+  `mongodb+srv://dbMariana:test1234@cluster0.u2n6q.mongodb.net/FinalProjectDatabase?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
