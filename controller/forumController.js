@@ -46,6 +46,3 @@ exports.updateQuestion = async (req, res, next) => {
     next(error);
   }
 };
-
-
-
