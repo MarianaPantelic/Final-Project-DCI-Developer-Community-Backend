@@ -49,7 +49,9 @@ exports.loginUser = async (req, res, next) => {
     next(error);
   }
 };
-exports.getImages = async (req, res, next) => {
+
+exports.addImage = async (req, res, next) => {
+  console.log("adding an image");
   const { id } = req.params;
   const dt = req.body;
   try {

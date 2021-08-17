@@ -13,7 +13,7 @@ exports.getBlogs = async (req, res, next) => {
     console.log("blogs" + blogs);
     res.status(200).send(blogs);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     //forward the error to the error handler
     next(error);
   }

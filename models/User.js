@@ -30,6 +30,10 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    image: {
+      data: Buffer,
+      contentType: String,
+    },
   },
 
   {
