@@ -7,6 +7,7 @@ exports.getUsers = async (req, res, next) => {
     const users = await User.find();
     res.status(200).send(users);
   } catch (e) {
+    console.log(e);
     next(e);
   }
 };
@@ -17,6 +18,7 @@ exports.getUser = async (req, res, next) => {
     if (!user) throw new createError.NotFound();
     res.status(200).send(user);
   } catch (e) {
+    console.log(e);
     next(e);
   }
 };
