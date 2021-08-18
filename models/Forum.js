@@ -14,7 +14,10 @@ const QuestionSchema = new Schema({
     type: String,
     required: true,
   },
-
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   answer: {
     type: Array,
     required: false,
