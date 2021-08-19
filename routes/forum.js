@@ -12,16 +12,19 @@ const {
   deleteQuestion,
   updateQuestion,
   getQuestion,
+  getAnswers,
+  addAnswer
 } = require("../controller/forumController");
 
 router
   .route("/")
   .get(getQuestions)
-  .post(validateInputs(QuestionValidationRules), auth, addQuestion);
+  .post(validateInputs(QuestionValidationRules), auth, addQuestion)
 
 router
   .route("/:id")
   .get(getQuestion)
+  .post(addAnswer)
   .delete(deleteQuestion)
   .put(updateQuestion)
 
