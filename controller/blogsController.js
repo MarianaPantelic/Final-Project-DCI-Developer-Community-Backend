@@ -4,8 +4,6 @@ const Blog = require("../models/Blog");
  * controller for the blogs
  */
 
-//   //get all records
-
 exports.getBlogs = async (req, res, next) => {
   //get all records
   try {
@@ -15,6 +13,16 @@ exports.getBlogs = async (req, res, next) => {
   } catch (error) {
     //console.log(error);
     //forward the error to the error handler
+    next(error);
+  }
+};
+
+exports.getBlog = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const blog = await Blog.findById(id);
+    res.status(200).send(blog);
+  } catch (error) {
     next(error);
   }
 };
