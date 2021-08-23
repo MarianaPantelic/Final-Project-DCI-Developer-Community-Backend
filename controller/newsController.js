@@ -5,8 +5,7 @@ exports.getNews = function (req, res, next) {
   const { page } = req.params;
   axios
     .get(
-      "https://dev.to/api/articles?api_key=" +
-        process.env.NEWS_API_KEY +
+      "https://dev.to/api/articles?api_key=ZRhAPuyBZSQkkBBAhDPHFmJA" +
         `&page=${page}`
     )
     .then(function (response) {
