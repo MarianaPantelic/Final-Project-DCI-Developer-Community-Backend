@@ -1,4 +1,3 @@
-
 //import mongoose so that we can use the library
 const mongoose = require("mongoose");
 //Destructuring schema from mongoose
@@ -18,14 +17,16 @@ const BlogsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-   likes: {
-     type: Number,
-   }, 
-   whoClicked: {
-     type: Array
-   }
+  likes: {
+    type: Number,
+  },
+  whoClicked: {
+    type: Array,
+  },
+  image: {
+    type: String,
+  },
 });
 
 //CREATE AND EXPORT THE MODEL
 module.exports = mongoose.model("Blog", BlogsSchema);
-

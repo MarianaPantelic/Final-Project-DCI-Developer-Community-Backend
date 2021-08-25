@@ -35,6 +35,7 @@ exports.addBlog = async (req, res, next) => {
       likes: 0,
       user: req.user._id,
       whoClicked: [],
+      image: req.body.image,
       // userName: req.body.userName,
     };
     console.log(data);
